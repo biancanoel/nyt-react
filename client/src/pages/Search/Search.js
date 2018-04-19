@@ -39,9 +39,24 @@ class Search extends Component {
             this.setState({
                 articles: res.data.response.docs
             });
-            // console.log(res.data.response.docs);
+           
         });
     };
+
+    handleSaveArticle = (article) => {
+        console.log('save article clicked');
+        console.log(article)
+
+            API.saveArticle({
+                headline: article.headline.main,
+                byline: article.byline.original,
+                url: article.web_url,
+                pub_date: article.pub_date,
+                articleid: article._id
+            })
+        
+    }
+
 
     render() {
 
@@ -94,6 +109,8 @@ class Search extends Component {
                                             byline = {article.byline.original}
                                             pubdate = {article.pub_date}
                                             url = {article.web_url}
+                                            key = {article._id}
+                                            saveArticle = {() => this.handleSaveArticle(article)}
                                             />
                                         )
                                     })} 
