@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from "./components/Nav";
 import Search from "./pages/Search";
 import Header from "./components/Header";
-import {ResultsList, ResultArticle} from "./pages/Results"
+
 
 class App extends Component {
   render() {

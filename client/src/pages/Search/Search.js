@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import {ResultsList, ResultArticle} from "../Results";
+import API from "../../utils/API";
 
 
 class Search extends Component {
@@ -23,13 +24,24 @@ class Search extends Component {
         event.preventDefault();
         console.log(this.state.searchTerm)
         console.log('form submit running')
-        this.setState({
-            searchTerm: "",
-            articles: [],
-            startDate: "",
-            endDate: ""
-        })
+        // this.setState({
+        //     searchTerm: "",
+        //     startDate: "",
+        //     endDate: "",
+            
+        // });
+        this.getArticles();
+
     }
+
+    getArticles = () => {
+        API.getArticles(this.state.searchTerm).then(res => {
+            this.setState({
+                articles: res.data.response.docs
+            });
+            // console.log(res.data.response.docs);
+        });
+    };
 
     render() {
 
@@ -78,14 +90,14 @@ class Search extends Component {
                                     {this.state.articles.map(article => {
                                         return (
                                             <ResultArticle 
-                                            headline = {article.headline}
-                                            byline = {article.byline}
+                                            headline = {article.headline.main}
+                                            byline = {article.byline.original}
                                             pubdate = {article.pub_date}
                                             url = {article.web_url}
                                             />
                                         )
-                                    })}
-                                </ResultsList>
+                                    })} 
+                               </ResultsList>
                             )}
 
                         </div>
