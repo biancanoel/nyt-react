@@ -104,7 +104,8 @@ class Search extends Component {
                                             pubdate = {article.pub_date}
                                             url = {article.web_url}
                                             key = {article._id}
-                                            saveArticle = {() => this.handleSaveArticle(article)}
+                                            button = {"Save"}
+                                            btnfunction = {() => this.handleSaveArticle(article)}
                                             />
                                         )
                                     })} 

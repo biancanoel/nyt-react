@@ -20,6 +20,12 @@ class Saved extends Component {
         })
     }
 
+    removeArticle = (id) => {
+        API.deleteArticle(id)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
+
     render() {
         return (
             <div>
@@ -34,6 +40,8 @@ class Saved extends Component {
                                 pubdate = {article.pub_date}
                                 url = {article.url}
                                 key = {article._id}
+                                button = {"Remove"}
+                                btnfunction = {() => this.removeArticle(article._id)}
                                 />
                             )
                         })}

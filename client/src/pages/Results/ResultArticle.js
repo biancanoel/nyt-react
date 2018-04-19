@@ -7,7 +7,7 @@ export const ResultArticle = (props) => {
             <div className="container">
                 <div className="row">
                     <a href={props.url}> {props.headline} </a>
-                    <button onClick={props.saveArticle}> Save </button>
+                    <button onClick={props.btnfunction}> {props.button} </button>
                 </div>
                 <div className="row">
                     {props.byline}
