@@ -24,12 +24,12 @@ class Search extends Component {
         event.preventDefault();
         console.log(this.state.searchTerm)
         console.log('form submit running')
-        // this.setState({
-        //     searchTerm: "",
-        //     startDate: "",
-        //     endDate: "",
+        this.setState({
+            searchTerm: "",
+            startDate: "",
+            endDate: "",
             
-        // });
+        });
         this.getArticles();
 
     }
@@ -54,12 +54,8 @@ class Search extends Component {
                 pub_date: article.pub_date,
                 articleid: article._id
             })
-        
     }
-
-
     render() {
-
         return (
             <div>
                 <div className="container">
@@ -92,9 +88,7 @@ class Search extends Component {
                                     onClick={this.handleFormSubmit} >
                                     SEARCH!
                             </Button>) : null}
-
                             </form>
-
                         </div>
                     </div>
 
@@ -116,11 +110,8 @@ class Search extends Component {
                                     })} 
                                </ResultsList>
                             )}
-
                         </div>
                     </div>
-
-
                 </div>
             </div>
         )
