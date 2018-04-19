@@ -10,7 +10,8 @@ class Search extends Component {
         searchTerm: "",
         startDate: "",
         endDate: "",
-        articles: []
+        articles: [],
+        savedArticles: []
     }
 
     handleInputChange = (event) => {
@@ -45,7 +46,10 @@ class Search extends Component {
 
     handleSaveArticle = (article) => {
         console.log('save article clicked');
-        console.log(article)
+        console.log(article);
+       this.setState({
+           savedArticles: [...this.state.savedArticles, article._id]
+       })
 
             API.saveArticle({
                 headline: article.headline.main,
@@ -104,7 +108,7 @@ class Search extends Component {
                                             pubdate = {article.pub_date}
                                             url = {article.web_url}
                                             key = {article._id}
-                                            button = {"Save"}
+                                            button = { !this.state.savedArticles.indexOf(article._id) ?  "Article Saved" : "Save"}
                                             btnfunction = {() => this.handleSaveArticle(article)}
                                             />
                                         )
