@@ -45,8 +45,8 @@ class Search extends Component {
     };
 
     handleSaveArticle = (article) => {
-        console.log('save article clicked');
-        console.log(article);
+        // console.log('save article clicked');
+        // console.log(article);
        this.setState({
            savedArticles: [...this.state.savedArticles, article._id]
        })

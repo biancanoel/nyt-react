@@ -22,8 +22,17 @@ class Saved extends Component {
 
     removeArticle = (id) => {
         API.deleteArticle(id)
-        .then(res => console.log(res))
+        .then(res =>  {
+            console.log(res);
+            this.setState(prevState => ({ articles: prevState.articles.filter(article => article._id !== res.data._id) }));
+
+        })
         .catch(err => console.log(err))
+
+        //need to remove res.data article from start
+        
+
+        
     }
 
     render() {
