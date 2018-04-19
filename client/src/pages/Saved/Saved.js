@@ -31,7 +31,7 @@ class Saved extends Component {
             <div>
                 <h1> this is the saved Component </h1>
                 {this.state.articles.length ?
-                    <ResultsList >
+                    (<ResultsList >
                         {this.state.articles.map(article => {
                             return (
                                 <ResultArticle 
@@ -46,7 +46,7 @@ class Saved extends Component {
                             )
                         })}
 
-                    </ResultsList>    : <h1> no saved articles yet </h1>
+                    </ResultsList> )   : <h1> no saved articles yet </h1>
                 }
 
             </div>
