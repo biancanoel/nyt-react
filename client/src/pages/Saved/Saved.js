@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { ResultsList, ResultArticle } from "../Results";
+import ResultsList from "../Results/ResultsList";
+import ResultArticle from "../Results/ResultArticle";
 import API from "../../utils/API";
 
 class Saved extends Component {

@@ -1,7 +1,7 @@
 import React from "react";
 
 // RecipeListItem renders a bootstrap list item containing data from the recipe api call
-export const ResultsList = (props) => (
+const ResultsList = (props) => (
     <div className="container">
         <div className="row" >
             <div className='col-12'>
@@ -10,6 +10,8 @@ export const ResultsList = (props) => (
         </div>
     </div>
 )
+
+export default ResultsList
 
 
 

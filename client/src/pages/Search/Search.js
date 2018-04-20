@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import {ResultsList, ResultArticle} from "../Results";
+import ResultsList from "../Results/ResultsList";
+import ResultArticle from "../Results/ResultArticle";
 import API from "../../utils/API";
 
 

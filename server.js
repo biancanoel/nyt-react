@@ -50,6 +50,7 @@ io.on('connection', function (socket){
   socket.on('chat', function (data){
     //send (emit) the data as a chat message to all  sockets so others can see the chat
     io.sockets.emit('chat', data)
+    console.log(data);
   })
   
 })
