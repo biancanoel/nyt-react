@@ -22,6 +22,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Add routes, both API and view
 app.use(routes);
+app.use(express.static('public'))
 
 
 // Send every request to the React app
@@ -29,6 +30,7 @@ app.use(routes);
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nyt-react-articles");
@@ -44,6 +46,10 @@ const io = socket(server)
 io.on('connection', function (socket){
     console.log(`made socket connection`, socket.id)
 
-
+    //on socket betweeen client and server, when a chat is sent from client (the data)
+  socket.on('chat', function (data){
+    //send (emit) the data as a chat message to all  sockets so others can see the chat
+    io.sockets.emit('chat', data)
+  })
   
 })

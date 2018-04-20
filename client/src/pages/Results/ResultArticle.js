@@ -1,6 +1,8 @@
 import React from 'react';
 
+
 export const ResultArticle = (props) => {
+    
 
     return (
         <li className="list-group-item" id={props.id}>
@@ -15,6 +17,15 @@ export const ResultArticle = (props) => {
                 <div className="row">
                     {props.pub_date}
                 </div>
+            </div>
+
+            <div id="article-chat">
+                <div id="chat-window">
+                    <div id="output"></div>
+                </div>
+                <input id="handle" type="text" placeholder="Handle" />
+                <input id="message" type="text" placeholder="Message" />
+                <button id="send"> Send </button>
             </div>
         </li>
     )
