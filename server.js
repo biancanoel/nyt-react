@@ -5,6 +5,10 @@ const routes = require("./routes");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const http = require('http');
+const socket = require('socket.io');
+
+
 
 
 // Configure body parser for AJAX requests
@@ -30,6 +34,16 @@ app.get("*", function(req, res) {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nyt-react-articles");
 
 
-app.listen(PORT, function() {
+var server = app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
+
+//Socket set up on server
+const io = socket(server)
+//when theres a connection w a browswer, fire the function
+io.on('connection', function (socket){
+    console.log(`made socket connection`, socket.id)
+
+
+  
+})
