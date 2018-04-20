@@ -1,12 +1,37 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import "./Nav.css";
 
 const Nav =() => (
 
   
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a className="navbar-brand" href="/">
-      E X T R A - E X T R A - R E A D - A L L - A B O U T - I T
-    </a>
+  <ul className="nav nav-tabs">
+
+    <li className="nav-item">
+      <Link
+        to="/search"
+        className={
+          window.location.pathname === "/search" ? "nav-link active" : "nav-link"
+        }
+      >
+        Search Articles 
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link
+        to="/saved"
+        className={
+          window.location.pathname === "/saved" ? "nav-link active" : "nav-link"
+        }
+      >
+       All Saved Articles
+      </Link>
+    </li>
+
+
+
+  </ul>
   </nav>
 );
 

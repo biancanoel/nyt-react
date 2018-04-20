@@ -5,11 +5,11 @@ import API from "../../utils/API";
 class Saved extends Component {
     state = {
         articles: []
-    }
+    };
 
     componentDidMount() {
         this.getSavedArticles()
-    }
+    };
 
     getSavedArticles = () => {
         API.getSavedArticles({}).then(res => {
@@ -18,7 +18,7 @@ class Saved extends Component {
                 articles: res.data
             })
         })
-    }
+    };
 
     removeArticle = (id) => {
         API.deleteArticle(id)
@@ -27,13 +27,8 @@ class Saved extends Component {
             this.setState(prevState => ({ articles: prevState.articles.filter(article => article._id !== res.data._id) }));
 
         })
-        .catch(err => console.log(err))
-
-        //need to remove res.data article from start
-        
-
-        
-    }
+        .catch(err => console.log(err))  
+    };
 
     render() {
         return (
@@ -54,16 +49,13 @@ class Saved extends Component {
                                 />
                             )
                         })}
-
-                    </ResultsList> )   : <h1> no saved articles yet </h1>
+                    </ResultsList> )   : <h1> No saved articles yet! </h1>
                 }
-
             </div>
-
         )
-    }
+    };
 
 
-}
+};
 
 export default Saved;

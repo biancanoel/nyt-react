@@ -8,21 +8,42 @@ import Saved from "./pages/Saved"
 
 
 class App extends Component {
+//determine page location and pass header appropriate wording
+state = {
+  location: "New York Times"
+}
+
+
+pageLocation = () => {
+  var where;
+  if ( window.location.pathname === "/") {
+    where = "New York Times"
+  } else if ( window.location.pathname === "/search") {
+    where = "Search for Articles"
+  } else {
+    where = "Saved Articles"
+  };
+  this.setState({
+    location: where
+  })
+};
+
+componentDidMount () {
+  this.pageLocation()
+}
+
+
   render() {
     return (
       <div className="App">
-        <Nav />
-        <Header />
         <Router>
           <div>
+            <Nav />
+            <Header where = {this.state.location}/>
             <Switch>
-              <Route exact path="/search" component={Search} />
-              <Route exact path="/" component={Search} />
-              <Route exact path="/saved" component={Saved} />
-              
+              <Route path="/search" component={Search} />
+              <Route path="/saved" component={Saved} />
             </Switch>
-
-
           </div>
         </Router>
       </div>

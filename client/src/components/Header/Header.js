@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => (
+const Header = (props) => (
 <div className="jumbotron jumbotron-fluid">
   <div className="container">
     <h1 className="display-4"> New York Times </h1>
